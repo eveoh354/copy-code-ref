@@ -1,0 +1,59 @@
+{
+  "name": "copy-code-ref",
+  "displayName": "Copy Code Reference",
+  "description": "Copy AI-friendly file references from selections or multiple cursors, for example /path/to/file.ts#L137-181.",
+  "version": "0.0.2",
+  "publisher": "local",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eveoh354/copy-code-ref.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eveoh354/copy-code-ref/issues"
+  },
+  "homepage": "https://github.com/eveoh354/copy-code-ref#readme",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:copy-code-ref.copyReference"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "copy-code-ref.copyReference",
+        "title": "Copy Code Reference",
+        "category": "Copy Code"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "copy-code-ref.copyReference",
+        "key": "ctrl+alt+c",
+        "mac": "cmd+alt+c",
+        "when": "editorTextFocus && !editorReadonly"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "copy-code-ref.copyReference",
+          "group": "navigation@20",
+          "when": "editorTextFocus"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "package": "vsce package",
+    "lint": "node --check extension.js"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^3.0.0"
+  }
+}
