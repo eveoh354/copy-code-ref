@@ -1,10 +1,11 @@
 {
-  "name": "copy-code-ref",
-  "displayName": "Copy Code Reference",
+  "name": "copy-code-path-ref",
+  "displayName": "Copy Code Path Reference",
   "description": "Copy AI-friendly file references from selections or multiple cursors, for example /path/to/file.ts#L137-181.",
-  "version": "0.0.2",
-  "publisher": "local",
+  "version": "0.0.1",
+  "publisher": "ohEVE",
   "license": "MIT",
+  "icon": "assets/icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/eveoh354/copy-code-ref.git"
@@ -20,20 +21,20 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:copy-code-ref.copyReference"
+    "onCommand:copy-code-path-ref.copyReference"
   ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "copy-code-ref.copyReference",
-        "title": "Copy Code Reference",
+        "command": "copy-code-path-ref.copyReference",
+        "title": "Copy Code Path Reference",
         "category": "Copy Code"
       }
     ],
     "keybindings": [
       {
-        "command": "copy-code-ref.copyReference",
+        "command": "copy-code-path-ref.copyReference",
         "key": "ctrl+alt+c",
         "mac": "cmd+alt+c",
         "when": "editorTextFocus && !editorReadonly"
@@ -42,7 +43,7 @@
     "menus": {
       "editor/context": [
         {
-          "command": "copy-code-ref.copyReference",
+          "command": "copy-code-path-ref.copyReference",
           "group": "navigation@20",
           "when": "editorTextFocus"
         }
@@ -51,7 +52,9 @@
   },
   "scripts": {
     "package": "vsce package",
-    "lint": "node --check extension.js"
+    "lint": "node --check extension.js",
+    "prepublish": "npm run lint && vsce package",
+    "publish": "vsce publish"
   },
   "devDependencies": {
     "@vscode/vsce": "^3.0.0"

@@ -48,7 +48,7 @@ async function copyReference() {
 
 function activate(context) {
   const disposable = vscode.commands.registerCommand(
-    'copy-code-ref.copyReference',
+    'copy-code-path-ref.copyReference',
     copyReference
   );
 
