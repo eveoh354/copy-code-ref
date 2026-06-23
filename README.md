@@ -1,5 +1,9 @@
 # Copy Code Path Reference
 
+[![GitHub Repository](https://img.shields.io/badge/GitHub-copy--code--ref-24292f?logo=github)](https://github.com/eveoh354/copy-code-ref)
+[![Version](https://img.shields.io/badge/version-0.1.0-blue)](https://github.com/eveoh354/copy-code-ref)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+
 English | [中文](#中文)
 
 Copy AI-friendly file and line references from VS Code-compatible editors:
