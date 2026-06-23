@@ -20,6 +20,20 @@
   "categories": [
     "Other"
   ],
+  "keywords": [
+    "copy",
+    "code",
+    "reference",
+    "path",
+    "line",
+    "line number",
+    "ai",
+    "codex",
+    "claude",
+    "claude code",
+    "cursor",
+    "trae"
+  ],
   "activationEvents": [
     "onCommand:copy-code-path-ref.copyReference",
     "onCommand:copy-code-path-ref.openAiCodingToolWithReference",
