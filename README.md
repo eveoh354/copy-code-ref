@@ -108,7 +108,7 @@ npm run package
 Install the generated `.vsix` in VS Code-compatible editors:
 
 ```bash
-code --install-extension copy-code-path-ref-0.0.1.vsix
+code --install-extension copy-code-path-ref-0.1.0.vsix
 ```
 
 For Cursor or Trae, use their extension install UI or CLI if available.
@@ -221,7 +221,7 @@ npm run package
 在兼容 VS Code 扩展的编辑器里安装生成的 `.vsix`：
 
 ```bash
-code --install-extension copy-code-path-ref-0.0.1.vsix
+code --install-extension copy-code-path-ref-0.1.0.vsix
 ```
 
 Cursor 或 Trae 可以使用它们的扩展安装界面，或者使用对应 CLI 安装。
