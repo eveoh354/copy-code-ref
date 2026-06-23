@@ -21,7 +21,10 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:copy-code-path-ref.copyReference"
+    "onCommand:copy-code-path-ref.copyReference",
+    "onCommand:copy-code-path-ref.openAiCodingToolWithReference",
+    "onCommand:copy-code-path-ref.sendReferenceToActiveTerminal",
+    "onCommand:copy-code-path-ref.selectAiCodingTool"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -30,6 +33,21 @@
         "command": "copy-code-path-ref.copyReference",
         "title": "Copy Code Path Reference",
         "category": "Copy Code"
+      },
+      {
+        "command": "copy-code-path-ref.openAiCodingToolWithReference",
+        "title": "Open AI Coding Tool with Code Path Reference",
+        "category": "Copy Code"
+      },
+      {
+        "command": "copy-code-path-ref.sendReferenceToActiveTerminal",
+        "title": "Send Code Path Reference to Active Terminal",
+        "category": "Copy Code"
+      },
+      {
+        "command": "copy-code-path-ref.selectAiCodingTool",
+        "title": "Select AI Coding Tool",
+        "category": "Copy Code"
       }
     ],
     "keybindings": [
@@ -37,7 +55,19 @@
         "command": "copy-code-path-ref.copyReference",
         "key": "ctrl+alt+c",
         "mac": "cmd+alt+c",
-        "when": "editorTextFocus && !editorReadonly"
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "copy-code-path-ref.openAiCodingToolWithReference",
+        "key": "ctrl+alt+n",
+        "mac": "cmd+alt+n",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "copy-code-path-ref.sendReferenceToActiveTerminal",
+        "key": "ctrl+alt+z",
+        "mac": "cmd+alt+z",
+        "when": "editorTextFocus"
       }
     ],
     "menus": {
@@ -46,8 +76,41 @@
           "command": "copy-code-path-ref.copyReference",
           "group": "navigation@20",
           "when": "editorTextFocus"
+        },
+        {
+          "command": "copy-code-path-ref.openAiCodingToolWithReference",
+          "group": "navigation@21",
+          "when": "editorTextFocus"
+        },
+        {
+          "command": "copy-code-path-ref.sendReferenceToActiveTerminal",
+          "group": "navigation@22",
+          "when": "editorTextFocus"
+        },
+        {
+          "command": "copy-code-path-ref.selectAiCodingTool",
+          "group": "navigation@30",
+          "when": "editorTextFocus"
         }
       ]
+    },
+    "configuration": {
+      "title": "Copy Code Path Reference",
+      "properties": {
+        "copyCodePathRef.aiCodingTool": {
+          "type": "string",
+          "default": "codex",
+          "enum": [
+            "codex",
+            "claudeCode"
+          ],
+          "enumItemLabels": [
+            "Codex",
+            "Claude Code"
+          ],
+          "description": "AI coding tool opened by Copy Code: Open AI Coding Tool with Code Path Reference."
+        }
+      }
     }
   },
   "scripts": {
