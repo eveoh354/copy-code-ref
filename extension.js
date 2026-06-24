@@ -14,10 +14,10 @@ function getLineRange(selection) {
 
 function formatReference(filePath, startLine, endLine) {
   if (startLine === endLine) {
-    return `${filePath}#L${startLine}`;
+    return `${filePath}#L${startLine} `;
   }
 
-  return `${filePath}#L${startLine}-${endLine}`;
+  return `${filePath}#L${startLine}-${endLine} `;
 }
 
 function getReferences(filePath, selections) {

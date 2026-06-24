@@ -1,7 +1,7 @@
 # Copy Code Path Reference
 
 [![GitHub Repository](https://img.shields.io/badge/GitHub-copy--code--ref-24292f?logo=github)](https://github.com/eveoh354/copy-code-ref)
-[![Version](https://img.shields.io/badge/version-0.1.0-blue)](https://github.com/eveoh354/copy-code-ref)
+[![Version](https://img.shields.io/badge/version-0.1.1-blue)](https://github.com/eveoh354/copy-code-ref)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 English | [中文](#中文)
@@ -112,7 +112,7 @@ npm run package
 Install the generated `.vsix` in VS Code-compatible editors:
 
 ```bash
-code --install-extension copy-code-path-ref-0.1.0.vsix
+code --install-extension copy-code-path-ref-0.1.1.vsix
 ```
 
 For Cursor or Trae, use their extension install UI or CLI if available.
@@ -225,7 +225,7 @@ npm run package
 在兼容 VS Code 扩展的编辑器里安装生成的 `.vsix`：
 
 ```bash
-code --install-extension copy-code-path-ref-0.1.0.vsix
+code --install-extension copy-code-path-ref-0.1.1.vsix
 ```
 
 Cursor 或 Trae 可以使用它们的扩展安装界面，或者使用对应 CLI 安装。
