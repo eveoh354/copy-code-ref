@@ -1,7 +1,7 @@
 # Copy Code Path Reference
 
 [![GitHub Repository](https://img.shields.io/badge/GitHub-copy--code--ref-24292f?logo=github)](https://github.com/eveoh354/copy-code-ref)
-[![Version](https://img.shields.io/badge/version-0.1.1-blue)](https://github.com/eveoh354/copy-code-ref)
+[![Version](https://img.shields.io/badge/version-0.1.2-blue)](https://github.com/eveoh354/copy-code-ref)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 English | [中文](#中文)
@@ -20,17 +20,17 @@ Select code, press the shortcut, then paste the copied reference into your AI co
 
 | Platform | Shortcut |
 | --- | --- |
-| macOS | `Cmd+Option+C` |
+| macOS | **⌘ ⌥ C** (`Cmd+Option+C`) |
 | Windows/Linux | `Ctrl+Alt+C` |
 
 To open your configured AI coding tool with the reference, use:
 
 | Platform | Shortcut |
 | --- | --- |
-| macOS | `Cmd+Option+N` |
+| macOS | **⌘ ⌥ N** (`Cmd+Option+N`) |
 | Windows/Linux | `Ctrl+Alt+N` |
 
-Run `Copy Code: Select AI Coding Tool` from the Command Palette to choose the target for `Cmd+Option+N`:
+Run `Copy Code: Select AI Coding Tool` from the Command Palette to choose the target for **⌘ ⌥ N** (`Cmd+Option+N`):
 
 | Value | Tool | Behavior |
 | --- | --- | --- |
@@ -43,7 +43,7 @@ If Claude Code is running in the VS Code-compatible integrated terminal, send th
 
 | Platform | Shortcut |
 | --- | --- |
-| macOS | `Cmd+Option+Z` |
+| macOS | **⌘ ⌥ Z** (`Cmd+Option+Z`) |
 | Windows/Linux | `Ctrl+Alt+Z` |
 
 This writes the reference into the active terminal input without pressing Enter.
@@ -70,14 +70,14 @@ Multiple cursors or selections are copied as one reference per line:
 
 ## Other Ways To Run
 
-These are VS Code commands contributed by this extension. You can run them from the Command Palette (`Cmd+Shift+P` on macOS, `Ctrl+Shift+P` on Windows/Linux) or from the editor context menu in VS Code, Cursor, Trae, or another VS Code-compatible editor:
+These are VS Code commands contributed by this extension. You can run them from the Command Palette (**⌘ ⇧ P** / `Cmd+Shift+P` on macOS, `Ctrl+Shift+P` on Windows/Linux) or from the editor context menu in VS Code, Cursor, Trae, or another VS Code-compatible editor:
 
 | Command | What It Does |
 | --- | --- |
 | `Copy Code: Copy Code Path Reference` | Copies the selected file and line reference to the clipboard. |
 | `Copy Code: Open AI Coding Tool with Code Path Reference` | Opens the configured AI coding tool, currently Codex or Claude Code, with the reference prefilled. |
 | `Copy Code: Send Code Path Reference to Active Terminal` | Sends the reference to Claude Code or another CLI running in the integrated terminal. |
-| `Copy Code: Select AI Coding Tool` | Lets you choose Codex or Claude Code for the `Cmd+Option+N` / `Ctrl+Alt+N` command. |
+| `Copy Code: Select AI Coding Tool` | Lets you choose Codex or Claude Code for the **⌘ ⌥ N** (`Cmd+Option+N`) / `Ctrl+Alt+N` command. |
 
 You can also change the same target from Settings by editing `copyCodePathRef.aiCodingTool`.
 
@@ -112,7 +112,7 @@ npm run package
 Install the generated `.vsix` in VS Code-compatible editors:
 
 ```bash
-code --install-extension copy-code-path-ref-0.1.1.vsix
+code --install-extension copy-code-path-ref-0.1.2.vsix
 ```
 
 For Cursor or Trae, use their extension install UI or CLI if available.
@@ -133,17 +133,17 @@ For Cursor or Trae, use their extension install UI or CLI if available.
 
 | 平台 | 快捷键 |
 | --- | --- |
-| macOS | `Cmd+Option+C` |
+| macOS | **⌘ ⌥ C** (`Cmd+Option+C`) |
 | Windows/Linux | `Ctrl+Alt+C` |
 
 可以用下面的快捷键打开配置里选择的 AI coding 工具，并把引用作为 prompt 带过去：
 
 | 平台 | 快捷键 |
 | --- | --- |
-| macOS | `Cmd+Option+N` |
+| macOS | **⌘ ⌥ N** (`Cmd+Option+N`) |
 | Windows/Linux | `Ctrl+Alt+N` |
 
-在命令面板运行 `Copy Code: Select AI Coding Tool`，可以选择 `Cmd+Option+N` 要打开的目标工具：
+在命令面板运行 `Copy Code: Select AI Coding Tool`，可以选择 **⌘ ⌥ N** (`Cmd+Option+N`) 要打开的目标工具：
 
 | 值 | 工具 | 行为 |
 | --- | --- | --- |
@@ -156,7 +156,7 @@ For Cursor or Trae, use their extension install UI or CLI if available.
 
 | 平台 | 快捷键 |
 | --- | --- |
-| macOS | `Cmd+Option+Z` |
+| macOS | **⌘ ⌥ Z** (`Cmd+Option+Z`) |
 | Windows/Linux | `Ctrl+Alt+Z` |
 
 它会把引用写进当前终端输入行，但不会自动按 Enter。
@@ -183,14 +183,14 @@ For Cursor or Trae, use their extension install UI or CLI if available.
 
 ## 其他运行方式
 
-这些是这个扩展注册到 VS Code 里的命令。你可以在 VS Code、Cursor、Trae 或其他兼容 VS Code 扩展的编辑器里，通过命令面板运行它们：macOS 按 `Cmd+Shift+P`，Windows/Linux 按 `Ctrl+Shift+P`，然后搜索 `Copy Code`。也可以在编辑器右键菜单里运行。
+这些是这个扩展注册到 VS Code 里的命令。你可以在 VS Code、Cursor、Trae 或其他兼容 VS Code 扩展的编辑器里，通过命令面板运行它们：macOS 按 **⌘ ⇧ P** (`Cmd+Shift+P`)，Windows/Linux 按 `Ctrl+Shift+P`，然后搜索 `Copy Code`。也可以在编辑器右键菜单里运行。
 
 | 命令 | 作用 |
 | --- | --- |
 | `Copy Code: Copy Code Path Reference` | 把选区的文件路径和行号引用复制到剪贴板。 |
 | `Copy Code: Open AI Coding Tool with Code Path Reference` | 打开配置里选择的 AI coding 工具，目前支持 Codex 和 Claude Code，并预填引用。 |
 | `Copy Code: Send Code Path Reference to Active Terminal` | 把引用发送到内置终端里的 Claude Code 或其他 CLI。 |
-| `Copy Code: Select AI Coding Tool` | 选择 `Cmd+Option+N` / `Ctrl+Alt+N` 要打开 Codex 还是 Claude Code。 |
+| `Copy Code: Select AI Coding Tool` | 选择 **⌘ ⌥ N** (`Cmd+Option+N`) / `Ctrl+Alt+N` 要打开 Codex 还是 Claude Code。 |
 
 同一个目标也可以在 Settings 里通过 `copyCodePathRef.aiCodingTool` 修改。
 
@@ -225,7 +225,7 @@ npm run package
 在兼容 VS Code 扩展的编辑器里安装生成的 `.vsix`：
 
 ```bash
-code --install-extension copy-code-path-ref-0.1.1.vsix
+code --install-extension copy-code-path-ref-0.1.2.vsix
 ```
 
 Cursor 或 Trae 可以使用它们的扩展安装界面，或者使用对应 CLI 安装。
