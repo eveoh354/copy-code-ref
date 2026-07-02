@@ -1,10 +1,12 @@
-# Copy Code Path Reference
+# Copy Code Ref for AI
 
 [![GitHub Repository](https://img.shields.io/badge/GitHub-copy--code--ref-24292f?logo=github)](https://github.com/eveoh354/copy-code-ref)
-[![Version](https://img.shields.io/badge/version-0.1.3-blue)](https://github.com/eveoh354/copy-code-ref)
+[![Version](https://img.shields.io/badge/version-0.1.4-blue)](https://github.com/eveoh354/copy-code-ref)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 English | [中文](#中文)
+
+A VS Code extension that copies selected code locations as file:line references and opens OpenAI Codex or Claude Code with the prompt prefilled.
 
 Copy AI-friendly file and line references from VS Code-compatible editors:
 
@@ -12,7 +14,7 @@ Copy AI-friendly file and line references from VS Code-compatible editors:
 /path/to/project/src/example.ts#L137-181
 ```
 
-This is useful when sending exact code locations to Codex, Claude Code, Cursor Chat, or other AI coding tools.
+This is useful when sending exact code locations to OpenAI Codex, Claude Code, Cursor Chat, Trae, or other AI coding tools without pasting the full code content.
 
 ## Quick Usage
 
@@ -97,29 +99,23 @@ Copy Code Path Reference
 
 Then bind it to any shortcut that does not conflict in your editor.
 
-## Install Locally
+## Install
 
-Install dependencies once:
+Search for `Copy Code Ref for AI`, `copy-code-path-ref`, or `ohEVE.copy-code-path-ref` in the VS Code Marketplace, then install the extension from your editor.
 
-```bash
-npm install
-```
+If it does not appear in your VS Code-compatible editor, open the extension page in the VS Code Marketplace and install it from there.
 
-Package a `.vsix`:
+If you have a `.vsix` package, you can also install it manually:
 
 ```bash
-npm run package
+code --install-extension copy-code-path-ref-0.1.4.vsix
 ```
 
-Install the generated `.vsix` in VS Code-compatible editors:
-
-```bash
-code --install-extension copy-code-path-ref-0.1.3.vsix
-```
-
-For Cursor or Trae, use their extension install UI or CLI if available.
+For Cursor or Trae, use their extension marketplace, extension install UI, or CLI if available.
 
 ## 中文
+
+一个 VS Code 扩展，用来把选中的代码位置复制成 file:line 引用，并打开 OpenAI Codex 或 Claude Code 预填 prompt。
 
 从 VS Code 兼容编辑器里复制适合 AI 编程工具使用的文件路径和行号引用：
 
@@ -127,7 +123,7 @@ For Cursor or Trae, use their extension install UI or CLI if available.
 /path/to/project/src/example.ts#L137-181
 ```
 
-当你需要把精确的代码位置发给 Codex、Claude Code、Cursor Chat 或其他 AI 编程工具时，这个扩展会很方便。
+当你需要把精确的代码位置发给 OpenAI Codex、Claude Code、Cursor Chat、Trae 或其他 AI 编程工具，又不想粘贴完整代码内容时，这个扩展会很方便。
 
 ## 快速使用
 
@@ -212,24 +208,16 @@ Copy Code Path Reference
 
 然后绑定成你喜欢、且不和其他功能冲突的快捷键。
 
-## 本地安装
+## 安装
 
-首次安装依赖：
+在 VS Code Marketplace 里搜索 `Copy Code Ref for AI`、`copy-code-path-ref` 或 `ohEVE.copy-code-path-ref`，然后从编辑器里安装这个扩展。
 
-```bash
-npm install
-```
+如果你的 VS Code 兼容编辑器里搜不到，可以打开 VS Code Marketplace 的扩展页面，从网页安装。
 
-打包 `.vsix`：
+如果你已经有 `.vsix` 包，也可以手动安装：
 
 ```bash
-npm run package
+code --install-extension copy-code-path-ref-0.1.4.vsix
 ```
 
-在兼容 VS Code 扩展的编辑器里安装生成的 `.vsix`：
-
-```bash
-code --install-extension copy-code-path-ref-0.1.3.vsix
-```
-
-Cursor 或 Trae 可以使用它们的扩展安装界面，或者使用对应 CLI 安装。
+Cursor 或 Trae 可以优先使用它们自己的扩展市场、扩展安装界面，或者对应 CLI。

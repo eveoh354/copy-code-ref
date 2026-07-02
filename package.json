@@ -1,8 +1,8 @@
 {
   "name": "copy-code-path-ref",
-  "displayName": "Copy Code Path Reference",
-  "description": "Copy AI-friendly file references from selections or multiple cursors, for example /path/to/file.ts#L137-181.",
-  "version": "0.1.3",
+  "displayName": "Copy Code Ref for AI",
+  "description": "Copy VS Code file:line references and open Codex, Claude Code, or other AI coding tools with a prefilled prompt.",
+  "version": "0.1.4",
   "publisher": "ohEVE",
   "license": "MIT",
   "icon": "assets/icon.png",
@@ -28,11 +28,16 @@
     "line",
     "line number",
     "ai",
+    "openai",
     "codex",
+    "openai codex",
     "claude",
     "claude code",
     "cursor",
-    "trae"
+    "trae",
+    "file reference",
+    "code path",
+    "selection"
   ],
   "activationEvents": [
     "onCommand:copy-code-path-ref.copyReference",
@@ -109,7 +114,7 @@
       ]
     },
     "configuration": {
-      "title": "Copy Code Path Reference",
+      "title": "Copy Code Ref for AI",
       "properties": {
         "copyCodePathRef.aiCodingTool": {
           "type": "string",
