@@ -1,7 +1,7 @@
 # Copy Code Path Reference
 
 [![GitHub Repository](https://img.shields.io/badge/GitHub-copy--code--ref-24292f?logo=github)](https://github.com/eveoh354/copy-code-ref)
-[![Version](https://img.shields.io/badge/version-0.1.2-blue)](https://github.com/eveoh354/copy-code-ref)
+[![Version](https://img.shields.io/badge/version-0.1.3-blue)](https://github.com/eveoh354/copy-code-ref)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 English | [中文](#中文)
@@ -72,6 +72,8 @@ Multiple cursors or selections are copied as one reference per line:
 
 These are VS Code commands contributed by this extension. You can run them from the Command Palette (**⌘ ⇧ P** / `Cmd+Shift+P` on macOS, `Ctrl+Shift+P` on Windows/Linux) or from the editor context menu in VS Code, Cursor, Trae, or another VS Code-compatible editor:
 
+After selecting code, you can also right-click in the editor and choose one of the Copy Code commands. The same menu includes `Copy Code: Select AI Coding Tool`, so you can switch the configured target between Codex and Claude Code without opening Settings.
+
 | Command | What It Does |
 | --- | --- |
 | `Copy Code: Copy Code Path Reference` | Copies the selected file and line reference to the clipboard. |
@@ -112,7 +114,7 @@ npm run package
 Install the generated `.vsix` in VS Code-compatible editors:
 
 ```bash
-code --install-extension copy-code-path-ref-0.1.2.vsix
+code --install-extension copy-code-path-ref-0.1.3.vsix
 ```
 
 For Cursor or Trae, use their extension install UI or CLI if available.
@@ -185,6 +187,8 @@ For Cursor or Trae, use their extension install UI or CLI if available.
 
 这些是这个扩展注册到 VS Code 里的命令。你可以在 VS Code、Cursor、Trae 或其他兼容 VS Code 扩展的编辑器里，通过命令面板运行它们：macOS 按 **⌘ ⇧ P** (`Cmd+Shift+P`)，Windows/Linux 按 `Ctrl+Shift+P`，然后搜索 `Copy Code`。也可以在编辑器右键菜单里运行。
 
+选中代码后，也可以直接在编辑器里右键，选择对应的 Copy Code 命令。同一个右键菜单里也有 `Copy Code: Select AI Coding Tool`，可以不用打开 Settings，就把目标工具在 Codex 和 Claude Code 之间切换。
+
 | 命令 | 作用 |
 | --- | --- |
 | `Copy Code: Copy Code Path Reference` | 把选区的文件路径和行号引用复制到剪贴板。 |
@@ -225,7 +229,7 @@ npm run package
 在兼容 VS Code 扩展的编辑器里安装生成的 `.vsix`：
 
 ```bash
-code --install-extension copy-code-path-ref-0.1.2.vsix
+code --install-extension copy-code-path-ref-0.1.3.vsix
 ```
 
 Cursor 或 Trae 可以使用它们的扩展安装界面，或者使用对应 CLI 安装。
