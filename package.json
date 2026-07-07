@@ -2,7 +2,7 @@
   "name": "copy-code-path-ref",
   "displayName": "Copy Code Ref for AI",
   "description": "Copy VS Code file:line references and open Codex, Claude Code, or other AI coding tools with a prefilled prompt.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "publisher": "ohEVE",
   "license": "MIT",
   "icon": "assets/icon.png",
@@ -43,7 +43,8 @@
     "onCommand:copy-code-path-ref.copyReference",
     "onCommand:copy-code-path-ref.openAiCodingToolWithReference",
     "onCommand:copy-code-path-ref.sendReferenceToActiveTerminal",
-    "onCommand:copy-code-path-ref.selectAiCodingTool"
+    "onCommand:copy-code-path-ref.selectAiCodingTool",
+    "onCommand:copy-code-path-ref.showUsageStats"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -66,6 +67,11 @@
       {
         "command": "copy-code-path-ref.selectAiCodingTool",
         "title": "Select AI Coding Tool",
+        "category": "Copy Code"
+      },
+      {
+        "command": "copy-code-path-ref.showUsageStats",
+        "title": "Show Local Shortcut Usage Stats",
         "category": "Copy Code"
       }
     ],

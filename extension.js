@@ -1,6 +1,25 @@
 const vscode = require('vscode');
 const { execFile } = require('child_process');
 
+const USAGE_STATS_KEY = 'copyCodePathRef.usageStats';
+const USAGE_COMMANDS = [
+  {
+    id: 'copyReference',
+    title: 'Copy Code Path Reference',
+    shortcut: process.platform === 'darwin' ? 'Cmd+Option+C' : 'Ctrl+Alt+C'
+  },
+  {
+    id: 'openAiCodingToolWithReference',
+    title: 'Open AI Coding Tool with Code Path Reference',
+    shortcut: process.platform === 'darwin' ? 'Cmd+Option+N' : 'Ctrl+Alt+N'
+  },
+  {
+    id: 'sendReferenceToActiveTerminal',
+    title: 'Send Code Path Reference to Active Terminal',
+    shortcut: process.platform === 'darwin' ? 'Cmd+Option+Z' : 'Ctrl+Alt+Z'
+  }
+];
+
 function getLineRange(selection) {
   const startLine = selection.start.line + 1;
   let endLine = selection.end.line + 1;
@@ -73,6 +92,8 @@ async function copyReference() {
   if (!referenceText) {
     return;
   }
+
+  await recordUsage('copyReference');
 
   const references = referenceText.split('\n');
   vscode.window.setStatusBarMessage(`Copied ${references.length} code reference${references.length === 1 ? '' : 's'}`, 2500);
@@ -201,6 +222,44 @@ async function selectAiCodingTool() {
   vscode.window.setStatusBarMessage(`Copy Code target set to ${selected.label}`, 2500);
 }
 
+function getUsageStats(context) {
+  const stats = context.globalState.get(USAGE_STATS_KEY, {});
+  return USAGE_COMMANDS.reduce((normalizedStats, command) => {
+    normalizedStats[command.id] = Number.isInteger(stats[command.id]) ? stats[command.id] : 0;
+    return normalizedStats;
+  }, {});
+}
+
+async function recordUsage(commandId) {
+  const context = recordUsage.context;
+
+  if (!context) {
+    return;
+  }
+
+  const stats = getUsageStats(context);
+  stats[commandId] = (stats[commandId] || 0) + 1;
+  await context.globalState.update(USAGE_STATS_KEY, stats);
+}
+
+async function showUsageStats(context) {
+  const stats = getUsageStats(context);
+  const total = USAGE_COMMANDS.reduce((sum, command) => sum + stats[command.id], 0);
+  const items = USAGE_COMMANDS.map((command) => ({
+    label: `${command.shortcut} · ${stats[command.id]} time${stats[command.id] === 1 ? '' : 's'}`,
+    description: command.title
+  }));
+
+  items.push({
+    label: `Total · ${total} time${total === 1 ? '' : 's'}`,
+    description: 'Stored locally on this machine'
+  });
+
+  await vscode.window.showQuickPick(items, {
+    placeHolder: 'Copy Code local shortcut usage'
+  });
+}
+
 async function openAiCodingToolWithReference() {
   const editor = vscode.window.activeTextEditor;
 
@@ -220,6 +279,8 @@ async function openAiCodingToolWithReference() {
   const url = buildAiCodingToolUrl(tool, referenceText, workspacePath);
 
   await openUrl(url);
+
+  await recordUsage('openAiCodingToolWithReference');
 
   const references = referenceText.split('\n');
   const toolLabel = getAiCodingToolLabel(tool);
@@ -243,11 +304,15 @@ async function sendReferenceToActiveTerminal() {
   terminal.show();
   terminal.sendText(referenceText, false);
 
+  await recordUsage('sendReferenceToActiveTerminal');
+
   const references = referenceText.split('\n');
   vscode.window.setStatusBarMessage(`Sent ${references.length} code reference${references.length === 1 ? '' : 's'} to the active terminal`, 2500);
 }
 
 function activate(context) {
+  recordUsage.context = context;
+
   const copyDisposable = vscode.commands.registerCommand(
     'copy-code-path-ref.copyReference',
     copyReference
@@ -268,11 +333,17 @@ function activate(context) {
     selectAiCodingTool
   );
 
+  const showUsageStatsDisposable = vscode.commands.registerCommand(
+    'copy-code-path-ref.showUsageStats',
+    () => showUsageStats(context)
+  );
+
   context.subscriptions.push(
     copyDisposable,
     openAiCodingToolDisposable,
     sendToTerminalDisposable,
-    selectAiCodingToolDisposable
+    selectAiCodingToolDisposable,
+    showUsageStatsDisposable
   );
 }
 
@@ -294,6 +365,9 @@ module.exports = {
   getAiCodingToolItems,
   buildAiCodingToolUrl,
   selectAiCodingTool,
+  getUsageStats,
+  recordUsage,
+  showUsageStats,
   openAiCodingToolWithReference,
   sendReferenceToActiveTerminal
 };

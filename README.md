@@ -1,7 +1,7 @@
 # Copy Code Ref for AI
 
 [![GitHub Repository](https://img.shields.io/badge/GitHub-copy--code--ref-24292f?logo=github)](https://github.com/eveoh354/copy-code-ref)
-[![Version](https://img.shields.io/badge/version-0.1.4-blue)](https://github.com/eveoh354/copy-code-ref)
+[![Version](https://img.shields.io/badge/version-0.1.5-blue)](https://github.com/eveoh354/copy-code-ref)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 English | [中文](#中文)
@@ -70,6 +70,12 @@ Multiple cursors or selections are copied as one reference per line:
 /path/to/project/src/example.ts#L224
 ```
 
+## Local Usage Stats
+
+Run `Copy Code: Show Local Shortcut Usage Stats` from the Command Palette to see how many times the three shortcut commands have been used on this machine.
+
+The counts are stored locally in VS Code extension state. They are not uploaded and do not include code content, file paths, workspace paths, project names, terminal content, or AI prompts.
+
 ## Other Ways To Run
 
 These are VS Code commands contributed by this extension. You can run them from the Command Palette (**⌘ ⇧ P** / `Cmd+Shift+P` on macOS, `Ctrl+Shift+P` on Windows/Linux) or from the editor context menu in VS Code, Cursor, Trae, or another VS Code-compatible editor:
@@ -82,6 +88,7 @@ After selecting code, you can also right-click in the editor and choose one of t
 | `Copy Code: Open AI Coding Tool with Code Path Reference` | Opens the configured AI coding tool, currently Codex or Claude Code, with the reference prefilled. |
 | `Copy Code: Send Code Path Reference to Active Terminal` | Sends the reference to Claude Code or another CLI running in the integrated terminal. |
 | `Copy Code: Select AI Coding Tool` | Lets you choose Codex or Claude Code for the **⌘ ⌥ N** (`Cmd+Option+N`) / `Ctrl+Alt+N` command. |
+| `Copy Code: Show Local Shortcut Usage Stats` | Shows local usage counts for the three shortcut commands. |
 
 You can also change the same target from Settings by editing `copyCodePathRef.aiCodingTool`.
 
@@ -108,7 +115,7 @@ If it does not appear in your VS Code-compatible editor, open the extension page
 If you have a `.vsix` package, you can also install it manually:
 
 ```bash
-code --install-extension copy-code-path-ref-0.1.4.vsix
+code --install-extension copy-code-path-ref-0.1.5.vsix
 ```
 
 For Cursor or Trae, use their extension marketplace, extension install UI, or CLI if available.
@@ -179,6 +186,12 @@ For Cursor or Trae, use their extension marketplace, extension install UI, or CL
 /path/to/project/src/example.ts#L224
 ```
 
+## 本机使用统计
+
+在命令面板运行 `Copy Code: Show Local Shortcut Usage Stats`，可以查看这三个快捷键命令在当前机器上的使用次数。
+
+统计数据只保存在 VS Code 的扩展本地状态里，不会上传，也不会包含代码内容、文件路径、工作区路径、项目名、终端内容或 AI prompt。
+
 ## 其他运行方式
 
 这些是这个扩展注册到 VS Code 里的命令。你可以在 VS Code、Cursor、Trae 或其他兼容 VS Code 扩展的编辑器里，通过命令面板运行它们：macOS 按 **⌘ ⇧ P** (`Cmd+Shift+P`)，Windows/Linux 按 `Ctrl+Shift+P`，然后搜索 `Copy Code`。也可以在编辑器右键菜单里运行。
@@ -191,6 +204,7 @@ For Cursor or Trae, use their extension marketplace, extension install UI, or CL
 | `Copy Code: Open AI Coding Tool with Code Path Reference` | 打开配置里选择的 AI coding 工具，目前支持 Codex 和 Claude Code，并预填引用。 |
 | `Copy Code: Send Code Path Reference to Active Terminal` | 把引用发送到内置终端里的 Claude Code 或其他 CLI。 |
 | `Copy Code: Select AI Coding Tool` | 选择 **⌘ ⌥ N** (`Cmd+Option+N`) / `Ctrl+Alt+N` 要打开 Codex 还是 Claude Code。 |
+| `Copy Code: Show Local Shortcut Usage Stats` | 查看三个快捷键命令的本机使用次数。 |
 
 同一个目标也可以在 Settings 里通过 `copyCodePathRef.aiCodingTool` 修改。
 
@@ -217,7 +231,7 @@ Copy Code Path Reference
 如果你已经有 `.vsix` 包，也可以手动安装：
 
 ```bash
-code --install-extension copy-code-path-ref-0.1.4.vsix
+code --install-extension copy-code-path-ref-0.1.5.vsix
 ```
 
 Cursor 或 Trae 可以优先使用它们自己的扩展市场、扩展安装界面，或者对应 CLI。
