@@ -44,11 +44,16 @@ function escapeMarkdownLinkLabel(label) {
 }
 
 function formatMarkdownLinkDestination(destination) {
+  const escapedDestination = destination
+    .replace(/\\/g, '\\\\')
+    .replace(/\(/g, '\\(')
+    .replace(/\)/g, '\\)');
+
   if (/[\s()<>]/.test(destination)) {
-    return `<${destination.replace(/>/g, '%3E')}>`;
+    return `<${escapedDestination.replace(/>/g, '%3E')}>`;
   }
 
-  return destination;
+  return escapedDestination;
 }
 
 function formatCodexReference(filePath, startLine, endLine) {
