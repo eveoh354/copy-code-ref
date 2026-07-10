@@ -1,7 +1,7 @@
 # Copy Code Ref for AI
 
 [![GitHub Repository](https://img.shields.io/badge/GitHub-copy--code--ref-24292f?logo=github)](https://github.com/eveoh354/copy-code-ref)
-[![Version](https://img.shields.io/badge/version-0.1.5-blue)](https://github.com/eveoh354/copy-code-ref)
+[![Version](https://img.shields.io/badge/version-0.2.0-blue)](https://github.com/eveoh354/copy-code-ref)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 English | [中文](#中文)
@@ -123,7 +123,7 @@ If it does not appear in your VS Code-compatible editor, open the extension page
 If you have a `.vsix` package, you can also install it manually:
 
 ```bash
-code --install-extension copy-code-path-ref-0.1.5.vsix
+code --install-extension copy-code-path-ref-0.2.0.vsix
 ```
 
 For Cursor or Trae, use their extension marketplace, extension install UI, or CLI if available.
@@ -247,7 +247,7 @@ Copy Code Path Reference
 如果你已经有 `.vsix` 包，也可以手动安装：
 
 ```bash
-code --install-extension copy-code-path-ref-0.1.5.vsix
+code --install-extension copy-code-path-ref-0.2.0.vsix
 ```
 
 Cursor 或 Trae 可以优先使用它们自己的扩展市场、扩展安装界面，或者对应 CLI。
