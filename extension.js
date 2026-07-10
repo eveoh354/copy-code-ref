@@ -31,18 +31,44 @@ function getLineRange(selection) {
   return { startLine, endLine };
 }
 
-function formatReference(filePath, startLine, endLine) {
+function formatClaudeCodeReference(filePath, startLine, endLine) {
   if (startLine === endLine) {
-    return `${filePath}#L${startLine} `;
+    return `@${filePath}#${startLine}`;
   }
 
-  return `${filePath}#L${startLine}-${endLine} `;
+  return `@${filePath}#${startLine}-${endLine}`;
 }
 
-function getReferences(filePath, selections) {
+function escapeMarkdownLinkLabel(label) {
+  return label.replace(/\\/g, '\\\\').replace(/\]/g, '\\]');
+}
+
+function formatMarkdownLinkDestination(destination) {
+  if (/[\s()<>]/.test(destination)) {
+    return `<${destination.replace(/>/g, '%3E')}>`;
+  }
+
+  return destination;
+}
+
+function formatCodexReference(filePath, startLine, endLine) {
+  const target = `${filePath}:${startLine}`;
+  const label = startLine === endLine ? target : `${filePath}:${startLine}-${endLine}`;
+  return `[${escapeMarkdownLinkLabel(label)}](${formatMarkdownLinkDestination(target)})`;
+}
+
+function formatReference(filePath, startLine, endLine, targetTool = 'claudeCode') {
+  if (targetTool === 'codex') {
+    return formatCodexReference(filePath, startLine, endLine);
+  }
+
+  return formatClaudeCodeReference(filePath, startLine, endLine);
+}
+
+function getReferences(filePath, selections, targetTool = 'claudeCode') {
   return selections.map((selection) => {
     const { startLine, endLine } = getLineRange(selection);
-    return formatReference(filePath, startLine, endLine);
+    return formatReference(filePath, startLine, endLine, targetTool);
   });
 }
 
@@ -99,7 +125,7 @@ async function copyReference() {
   vscode.window.setStatusBarMessage(`Copied ${references.length} code reference${references.length === 1 ? '' : 's'}`, 2500);
 }
 
-async function copyReferenceToClipboard() {
+async function copyReferenceToClipboard(targetTool = getAiCodingTool()) {
   const editor = vscode.window.activeTextEditor;
 
   if (!editor) {
@@ -114,7 +140,7 @@ async function copyReferenceToClipboard() {
     return undefined;
   }
 
-  const references = getReferences(filePath, editor.selections);
+  const references = getReferences(filePath, editor.selections, targetTool);
   const referenceText = references.join('\n');
 
   await vscode.env.clipboard.writeText(referenceText);
@@ -268,13 +294,13 @@ async function openAiCodingToolWithReference() {
     return;
   }
 
-  const referenceText = await copyReferenceToClipboard();
+  const tool = getAiCodingTool();
+  const referenceText = await copyReferenceToClipboard(tool);
 
   if (!referenceText) {
     return;
   }
 
-  const tool = getAiCodingTool();
   const workspacePath = getWorkspacePath(editor);
   const url = buildAiCodingToolUrl(tool, referenceText, workspacePath);
 
@@ -295,7 +321,7 @@ async function sendReferenceToActiveTerminal() {
     return;
   }
 
-  const referenceText = await copyReferenceToClipboard();
+  const referenceText = await copyReferenceToClipboard('claudeCode');
 
   if (!referenceText) {
     return;
@@ -353,6 +379,10 @@ module.exports = {
   activate,
   deactivate,
   getLineRange,
+  formatClaudeCodeReference,
+  formatCodexReference,
+  escapeMarkdownLinkLabel,
+  formatMarkdownLinkDestination,
   formatReference,
   getReferences,
   parseJsonQuery,

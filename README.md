@@ -1,7 +1,7 @@
 # Copy Code Ref for AI
 
 [![GitHub Repository](https://img.shields.io/badge/GitHub-copy--code--ref-24292f?logo=github)](https://github.com/eveoh354/copy-code-ref)
-[![Version](https://img.shields.io/badge/version-0.1.5-blue)](https://github.com/eveoh354/copy-code-ref)
+[![Version](https://img.shields.io/badge/version-0.1.6-blue)](https://github.com/eveoh354/copy-code-ref)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 English | [中文](#中文)
@@ -11,7 +11,7 @@ A VS Code extension that copies selected code locations as file:line references 
 Copy AI-friendly file and line references from VS Code-compatible editors:
 
 ```text
-/path/to/project/src/example.ts#L137-181
+@/path/to/project/src/example.ts#137-181
 ```
 
 This is useful when sending exact code locations to OpenAI Codex, Claude Code, Cursor Chat, Trae, or other AI coding tools without pasting the full code content.
@@ -50,24 +50,32 @@ If Claude Code is running in the VS Code-compatible integrated terminal, send th
 
 This writes the reference into the active terminal input without pressing Enter.
 
-Output example:
+Output examples:
+
+Codex:
+
+```markdown
+[/path/to/project/src/example.ts:137](/path/to/project/src/example.ts:137)
+```
+
+Claude Code and terminal:
 
 ```text
-/path/to/project/src/example.ts#L137-181
+@/path/to/project/src/example.ts#137-181
 ```
 
 No selection copies the current line:
 
 ```text
-/path/to/project/src/example.ts#L137
+@/path/to/project/src/example.ts#137
 ```
 
 Multiple cursors or selections are copied as one reference per line:
 
 ```text
-/path/to/project/src/example.ts#L137
-/path/to/project/src/example.ts#L181-190
-/path/to/project/src/example.ts#L224
+@/path/to/project/src/example.ts#137
+@/path/to/project/src/example.ts#181-190
+@/path/to/project/src/example.ts#224
 ```
 
 ## Local Usage Stats
@@ -115,7 +123,7 @@ If it does not appear in your VS Code-compatible editor, open the extension page
 If you have a `.vsix` package, you can also install it manually:
 
 ```bash
-code --install-extension copy-code-path-ref-0.1.5.vsix
+code --install-extension copy-code-path-ref-0.1.6.vsix
 ```
 
 For Cursor or Trae, use their extension marketplace, extension install UI, or CLI if available.
@@ -127,7 +135,7 @@ For Cursor or Trae, use their extension marketplace, extension install UI, or CL
 从 VS Code 兼容编辑器里复制适合 AI 编程工具使用的文件路径和行号引用：
 
 ```text
-/path/to/project/src/example.ts#L137-181
+@/path/to/project/src/example.ts#137-181
 ```
 
 当你需要把精确的代码位置发给 OpenAI Codex、Claude Code、Cursor Chat、Trae 或其他 AI 编程工具，又不想粘贴完整代码内容时，这个扩展会很方便。
@@ -168,22 +176,30 @@ For Cursor or Trae, use their extension marketplace, extension install UI, or CL
 
 输出示例：
 
+Codex：
+
+```markdown
+[/path/to/project/src/example.ts:137](/path/to/project/src/example.ts:137)
+```
+
+Claude Code 和终端：
+
 ```text
-/path/to/project/src/example.ts#L137-181
+@/path/to/project/src/example.ts#137-181
 ```
 
 没有选中代码时，会复制当前行：
 
 ```text
-/path/to/project/src/example.ts#L137
+@/path/to/project/src/example.ts#137
 ```
 
 多个光标或多个选区会复制为多行，每行一个引用：
 
 ```text
-/path/to/project/src/example.ts#L137
-/path/to/project/src/example.ts#L181-190
-/path/to/project/src/example.ts#L224
+@/path/to/project/src/example.ts#137
+@/path/to/project/src/example.ts#181-190
+@/path/to/project/src/example.ts#224
 ```
 
 ## 本机使用统计
@@ -231,7 +247,7 @@ Copy Code Path Reference
 如果你已经有 `.vsix` 包，也可以手动安装：
 
 ```bash
-code --install-extension copy-code-path-ref-0.1.5.vsix
+code --install-extension copy-code-path-ref-0.1.6.vsix
 ```
 
 Cursor 或 Trae 可以优先使用它们自己的扩展市场、扩展安装界面，或者对应 CLI。

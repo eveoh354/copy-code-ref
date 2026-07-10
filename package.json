@@ -2,7 +2,7 @@
   "name": "copy-code-path-ref",
   "displayName": "Copy Code Ref for AI",
   "description": "Copy VS Code file:line references and open Codex, Claude Code, or other AI coding tools with a prefilled prompt.",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "publisher": "ohEVE",
   "license": "MIT",
   "icon": "assets/icon.png",
