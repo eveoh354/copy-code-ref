@@ -1,7 +1,8 @@
 # Copy Code Ref for AI
 
 [![GitHub Repository](https://img.shields.io/badge/GitHub-copy--code--ref-24292f?logo=github)](https://github.com/eveoh354/copy-code-ref)
-[![Version](https://img.shields.io/badge/version-0.2.0-blue)](https://github.com/eveoh354/copy-code-ref)
+[![Version](https://img.shields.io/badge/version-0.2.2-blue)](https://github.com/eveoh354/copy-code-ref)
+[![Open VSX Downloads](https://img.shields.io/open-vsx/dt/ohEVE/copy-code-path-ref?color=pink)](https://open-vsx.org/extension/ohEVE/copy-code-path-ref)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 English | [中文](#中文)
@@ -15,6 +16,8 @@ Copy AI-friendly file and line references from VS Code-compatible editors:
 ```
 
 This is useful when sending exact code locations to OpenAI Codex, Claude Code, Cursor Chat, Trae, or other AI coding tools without pasting the full code content.
+
+![Copy Code Ref for AI demo](assets/copy-code-ref-demo.gif)
 
 ## Quick Usage
 
