@@ -21,12 +21,10 @@ This is useful when sending exact code locations to OpenAI Codex, Claude Code, C
 
 ## Download History
 
-<a href="https://vsx-pulse.org/Extension/ohEVE.copy-code-path-ref">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/eveoh354/copy-code-ref/main/assets/openvsx-downloads-dark.png">
-    <img alt="Open VSX download history" src="https://raw.githubusercontent.com/eveoh354/copy-code-ref/main/assets/openvsx-downloads.png" width="960">
-  </picture>
-</a>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/eveoh354/copy-code-ref/main/assets/openvsx-downloads-dark.png">
+  <img alt="Open VSX download history" src="https://raw.githubusercontent.com/eveoh354/copy-code-ref/main/assets/openvsx-downloads.png" width="960">
+</picture>
 
 Updated daily from [VSX Pulse](https://vsx-pulse.org/Extension/ohEVE.copy-code-path-ref). Downloads include updates and are not unique users. Recorded history starts on September 30, 2026. The chart uses hourly observations for the first year, then each day's last observation. [Data and methodology](https://github.com/eveoh354/copy-code-ref/blob/main/data/openvsx/README.md).
 
