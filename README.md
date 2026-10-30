@@ -26,8 +26,6 @@ This is useful when sending exact code locations to OpenAI Codex, Claude Code, C
   <img alt="Open VSX download history" src="https://raw.githubusercontent.com/eveoh354/copy-code-ref/main/assets/openvsx-downloads.png" width="960">
 </picture>
 
-Updated daily from [VSX Pulse](https://vsx-pulse.org/Extension/ohEVE.copy-code-path-ref). Downloads include updates and are not unique users. Recorded history starts on September 30, 2026. The chart uses hourly observations for the first year, then each day's last observation. [Data and methodology](https://github.com/eveoh354/copy-code-ref/blob/main/data/openvsx/README.md).
-
 ## Quick Usage
 
 Select code, press the shortcut, then paste the copied reference into your AI coding tool.
