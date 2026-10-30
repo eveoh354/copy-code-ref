@@ -22,7 +22,7 @@
   <rect class="background" x="0.5" y="0.5" width="959" height="441" rx="16"/>
   <text class="heading" x="32" y="42" font-size="20" font-weight="650">Open VSX download history</text>
   <text class="muted" x="32" y="67" font-size="13">Copy Code Ref for AI · Hourly observations</text>
-  <text class="muted" x="32" y="99" font-size="13">+3,302 downloads over the recorded period</text>
+  <text class="muted" x="32" y="99" font-size="13">3,302 downloads in the last 30 days</text>
   <text class="total" x="928" y="52" text-anchor="end" font-size="34" font-weight="700">5,994</text>
   <text class="muted" x="928" y="75" text-anchor="end" font-size="12">cumulative downloads</text>
   <g>

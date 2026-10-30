@@ -10,6 +10,7 @@ Source: `https://vsx-pulse.org/api/series?id=ohEVE.copy-code-path-ref&metric=dow
 - Empty or invalid responses fail the run before changing the archive or chart. Missing observations remain missing; the chart breaks the line across gaps. A source outage longer than its available history window may leave permanent gaps.
 - All hourly records are retained. Before the first observation's one-year anniversary, the chart uses hourly points. At or after that anniversary, it uses the last available observation of each day in `Asia/Shanghai` (UTC+8). Daily counts are never summed or averaged. The latest day may be partial.
 - The chart's latest-observation timestamp comes from the data, not the time the workflow ran. These are downloads recorded by a third party, not independently verified installations.
+- The 30-day download count is the latest cumulative reading minus the reading exactly 30 × 24 hours earlier, using the hourly archive even when the curve uses daily points. If that baseline is missing, the chart shows insufficient data. Source corrections can produce a negative difference.
 
 ## Updating
 

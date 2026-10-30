@@ -3,9 +3,37 @@ import { mkdtemp, readFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import test from 'node:test';
-import { localDate, mergeHistory, parseSeries, readHistory, renderChart, selectChartPoints, updateHistory } from './update-download-history.mjs';
+import { downloadsInLast30Days, localDate, mergeHistory, parseSeries, readHistory, renderChart, selectChartPoints, updateHistory } from './update-download-history.mjs';
 
 const point = (hour, downloads) => ({ timestamp: `${hour}:00:00.000Z`, downloads });
+
+test('30-day downloads use the exact hourly boundary even when the chart uses daily points', () => {
+  const history = [
+    point('2025-09-01T04', 10),
+    point('2026-09-30T03', 90),
+    point('2026-09-30T04', 100),
+    point('2026-09-30T05', 110),
+    point('2026-10-30T04', 350)
+  ];
+  assert.equal(selectChartPoints(history).resolution, 'daily');
+  assert.equal(downloadsInLast30Days(history), 250);
+  assert.match(renderChart(history), /250 downloads in the last 30 days/);
+});
+
+test('30-day downloads remain unknown without an exact baseline', () => {
+  for (const history of [
+    [],
+    [point('2026-10-01T04', 100), point('2026-10-30T04', 350)],
+    [point('2026-09-30T03', 90), point('2026-09-30T05', 110), point('2026-10-30T04', 350)]
+  ]) assert.equal(downloadsInLast30Days(history), null);
+  assert.match(renderChart([point('2026-10-30T04', 350)]), /Last 30 days: insufficient data/);
+});
+
+test('30-day downloads preserve zero growth and downward corrections', () => {
+  const baseline = point('2026-09-30T04', 100);
+  assert.equal(downloadsInLast30Days([baseline, point('2026-10-30T04', 100)]), 0);
+  assert.equal(downloadsInLast30Days([baseline, point('2026-10-30T04', 95)]), -5);
+});
 
 test('merge a rolling window without losing old hours; accept corrections and deduplicate', () => {
   const old = [point('2026-09-30T03', 2692), point('2026-10-01T03', 2800)];

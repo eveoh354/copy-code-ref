@@ -97,6 +97,14 @@ async function writeIfChanged(path, content) {
 const number = value => value.toLocaleString('en-US');
 const escapeXml = value => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&apos;' }[char]));
 
+export function downloadsInLast30Days(history) {
+  const latest = history.at(-1);
+  if (!latest) return null;
+  const cutoff = Date.parse(latest.timestamp) - 30 * 24 * HOUR;
+  const baseline = history.find(point => Date.parse(point.timestamp) === cutoff);
+  return baseline ? latest.downloads - baseline.downloads : null;
+}
+
 export function renderChart(history, theme = 'auto') {
   const { resolution, points } = selectChartPoints(history);
   const first = history[0];
@@ -133,7 +141,7 @@ export function renderChart(history, theme = 'auto') {
     return `<text class="tick" x="${position}" y="${bottom + 26}" text-anchor="${i === 0 ? 'start' : i === 4 ? 'end' : 'middle'}">${localDate(timestamp)}</text>`;
   }).join('\n    ');
   const lastHour = new Intl.DateTimeFormat('en-GB', { timeZone: TIME_ZONE, hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).format(new Date(latest.timestamp));
-  const change = latest.downloads - first.downloads;
+  const recentDownloads = downloadsInLast30Days(history);
   return `<svg xmlns="http://www.w3.org/2000/svg" width="960" height="442" viewBox="0 0 960 442" role="img" aria-labelledby="title description">
   <title id="title">Open VSX download history — Copy Code Ref for AI</title>
   <desc id="description">${escapeXml(`${number(latest.downloads)} cumulative downloads. Recorded from ${localDate(first.timestamp)} to ${localDate(latest.timestamp)}. ${resolution} chart; gaps indicate missing observations. Source: VSX Pulse. Downloads are not unique users.`)}</desc>
@@ -158,7 +166,7 @@ export function renderChart(history, theme = 'auto') {
   <rect class="background" x="0.5" y="0.5" width="959" height="441" rx="16"/>
   <text class="heading" x="32" y="42" font-size="20" font-weight="650">Open VSX download history</text>
   <text class="muted" x="32" y="67" font-size="13">Copy Code Ref for AI · ${resolution === 'hourly' ? 'Hourly observations' : 'Daily last observations'}</text>
-  <text class="muted" x="32" y="99" font-size="13">${change >= 0 ? '+' : ''}${number(change)} downloads over the recorded period</text>
+  <text class="muted" x="32" y="99" font-size="13">${recentDownloads === null ? 'Last 30 days: insufficient data' : `${number(recentDownloads)} downloads in the last 30 days`}</text>
   <text class="total" x="928" y="52" text-anchor="end" font-size="34" font-weight="700">${number(latest.downloads)}</text>
   <text class="muted" x="928" y="75" text-anchor="end" font-size="12">cumulative downloads</text>
   <g>
