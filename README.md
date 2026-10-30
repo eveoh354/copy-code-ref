@@ -17,7 +17,7 @@ Copy AI-friendly file and line references from VS Code-compatible editors:
 
 This is useful when sending exact code locations to OpenAI Codex, Claude Code, Cursor Chat, Trae, or other AI coding tools without pasting the full code content.
 
-![Copy Code Ref for AI demo](assets/copy-code-ref-demo.gif)
+<img src="assets/copy-code-ref-demo.gif" alt="Copy Code Ref for AI demo" width="560">
 
 ## Download History
 
