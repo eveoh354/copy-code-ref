@@ -1,0 +1,49 @@
+name: Update Open VSX download history
+
+on:
+  schedule:
+    # Daily at 10:17 Asia/Shanghai (02:17 UTC).
+    - cron: '17 2 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: openvsx-download-history
+  cancel-in-progress: false
+
+jobs:
+  update:
+    if: github.repository == 'eveoh354/copy-code-ref' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Install chart renderer
+        run: npm ci --ignore-scripts
+      - name: Verify history handling
+        run: node --test scripts/update-download-history.test.mjs
+      - name: Fetch hourly history and render chart
+        run: node scripts/update-download-history.mjs
+      - name: Save changed history and chart
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          git add -- data/openvsx/*.json assets/openvsx-downloads.svg assets/openvsx-downloads.png assets/openvsx-downloads-dark.png
+          if git diff --cached --quiet; then
+            echo "No new observations or corrections."
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'Update Open VSX download history'
+          git push origin "HEAD:$DEFAULT_BRANCH"

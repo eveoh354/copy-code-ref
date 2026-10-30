@@ -3,3 +3,9 @@
 .vscode/**
 node_modules/**
 *.vsix
+.github/**
+scripts/**
+data/**
+assets/openvsx-downloads.svg
+assets/openvsx-downloads.png
+assets/openvsx-downloads-dark.png

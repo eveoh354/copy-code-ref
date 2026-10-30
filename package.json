@@ -139,12 +139,15 @@
     }
   },
   "scripts": {
+    "downloads:update": "node scripts/update-download-history.mjs",
+    "downloads:test": "node --test scripts/update-download-history.test.mjs",
     "package": "vsce package",
     "lint": "node --check extension.js",
     "prepublish": "npm run lint && vsce package",
     "publish": "vsce publish"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "2.6.2",
     "@vscode/vsce": "^3.0.0"
   }
 }

@@ -19,6 +19,17 @@ This is useful when sending exact code locations to OpenAI Codex, Claude Code, C
 
 ![Copy Code Ref for AI demo](assets/copy-code-ref-demo.gif)
 
+## Download History
+
+<a href="https://vsx-pulse.org/Extension/ohEVE.copy-code-path-ref">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/eveoh354/copy-code-ref/main/assets/openvsx-downloads-dark.png">
+    <img alt="Open VSX download history" src="https://raw.githubusercontent.com/eveoh354/copy-code-ref/main/assets/openvsx-downloads.png" width="960">
+  </picture>
+</a>
+
+Updated daily from [VSX Pulse](https://vsx-pulse.org/Extension/ohEVE.copy-code-path-ref). Downloads include updates and are not unique users. Recorded history starts on September 30, 2026. The chart uses hourly observations for the first year, then each day's last observation. [Data and methodology](https://github.com/eveoh354/copy-code-ref/blob/main/data/openvsx/README.md).
+
 ## Quick Usage
 
 Select code, press the shortcut, then paste the copied reference into your AI coding tool.
@@ -144,6 +155,8 @@ For Cursor or Trae, use their extension marketplace, extension install UI, or CL
 当你需要把精确的代码位置发给 OpenAI Codex、Claude Code、Cursor Chat、Trae 或其他 AI 编程工具，又不想粘贴完整代码内容时，这个扩展会很方便。
 
 ## 快速使用
+
+[下载增长趋势](#download-history)：数据来自 VSX Pulse，每天更新。保留全部小时记录，不足一年按小时绘图，满一年后按天绘图；下载量包含更新下载，不代表独立用户数。
 
 选中代码，按快捷键，然后把复制出来的引用粘贴到 AI 编程工具里。
 
